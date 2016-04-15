@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (3.3.1)
+  - Pingpp (2.2.1):
+    - Pingpp/Alipay (= 2.2.1)
+    - Pingpp/Core (= 2.2.1)
+    - Pingpp/UnionPay (= 2.2.1)
+  - Pingpp/Alipay (2.2.1):
+    - Pingpp/Core
+  - Pingpp/Core (2.2.1):
+    - Pingpp/Network
+  - Pingpp/Network (2.2.1)
+  - Pingpp/UnionPay (2.2.1):
+    - Pingpp/Core
+
+DEPENDENCIES:
+  - Alamofire
+  - Pingpp (~> 2.2.1)
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Pingpp: dee508790e80d288459f58ea407507f47885ff36
+
+COCOAPODS: 0.39.0
