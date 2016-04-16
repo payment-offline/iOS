@@ -18,7 +18,7 @@ class PayViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func cancelPayment(sender: AnyObject) {
-        self.viewModel.cancelPayment()
+        self.viewModel.stopPayment()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -29,7 +29,13 @@ class PayViewController: UIViewController {
     func askPaymentConfirmation(amount: Double) {
         let alertController = UIAlertController(title: "Do you want to pay", message: "for an amount of: \(amount)", preferredStyle: .Alert)
         
-        alertController.addAction(UIAlertAction(title: "cancel", style: .Destructive, handler: { (_) in }))
+        alertController.addAction(UIAlertAction(title: "cancel", style: .Destructive, handler: { (_) in
+            self.viewModel.cancelPayment().subscribeNext({
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }).addDisposableTo(self.rx_disposeBag)
+        }))
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) in
             self.viewModel.confirmPayment().subscribeNext({

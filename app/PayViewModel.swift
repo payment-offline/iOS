@@ -52,7 +52,11 @@ class PayViewModel {
         return sendString("OKC")
     }
     
-    func cancelPayment() {
+    func cancelPayment() -> Observable<Void> {
+        return sendString("BNI")
+    }
+    
+    func stopPayment() {
         self.voiceListenRecognizer.stopRecord()
         self.voiceSendRecognizer.stopPlay()
     }
