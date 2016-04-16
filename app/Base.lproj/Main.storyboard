@@ -29,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="65" id="fh2-Zu-Kv3"/>
                                                     <constraint firstAttribute="height" constant="65" id="nRY-m5-9Mi"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="63"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="74"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
@@ -43,7 +43,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="jH3-a2-cyb"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -164,7 +164,28 @@
                     <view key="view" contentMode="scaleToFill" id="xiJ-5w-yha">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVs-vu-tXL">
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
+                                <color key="backgroundColor" red="0.92654246794871786" green="0.92654246794871786" blue="0.92654246794871786" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3D1-Et-jOI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.98431372549999996" green="0.047058823530000002" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPayment:" destination="ITR-vH-MJv" eventType="touchUpInside" id="zeW-fE-B8s"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VVs-vu-tXL" firstAttribute="leading" secondItem="xiJ-5w-yha" secondAttribute="leadingMargin" constant="-20" id="6D2-KK-su4"/>
+                            <constraint firstItem="k41-Tx-DlD" firstAttribute="top" secondItem="VVs-vu-tXL" secondAttribute="bottom" id="EYg-pR-Jj5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VVs-vu-tXL" secondAttribute="trailing" constant="-20" id="KE4-pw-9ys"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDW-QV-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>

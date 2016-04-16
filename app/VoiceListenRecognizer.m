@@ -20,6 +20,7 @@ static const char* const CODE_BOOK = "0123456789abcdefghijklmnopqrstuvwxyzABCDEF
 @interface VoiceListenRecognizer ()
 @property (nonnull, nonatomic, assign) SinVoiceRecognizer *mSinVoiceRecorder;
 @property (nonnull, nonatomic, assign) FILE *mFile;
+@property (nonatomic, copy) void (^listenCompletion)(NSString *string);
 @end
 
 ESVoid onSinVoiceRecognizerStart(ESVoid* cbParam) {
@@ -55,7 +56,11 @@ SinVoiceRecognizerCallback gSinVoiceRecognizerCallback = {onSinVoiceRecognizerSt
         mPcmRecorder.stop = MyPcmRecorderImp_stop;
         mPcmRecorder.setParam = MyPcmRecorderImp_setParam;
         mPcmRecorder.destroy = MyPcmRecorderImp_destroy;
-        self.mSinVoiceRecorder = SinVoiceRecognizer_create2("com.sinvoice.demo", "SinVoiceDemo", &gSinVoiceRecognizerCallback, (__bridge ESVoid *)(self), &mPcmRecorder);
+        self.mSinVoiceRecorder = SinVoiceRecognizer_create2("com.sinvoice.demo",
+                                                            "SinVoiceDemo",
+                                                            &gSinVoiceRecognizerCallback,
+                                                            (__bridge ESVoid *)(self),
+                                                            &mPcmRecorder);
     }
     return self;
 }
@@ -78,10 +83,13 @@ SinVoiceRecognizerCallback gSinVoiceRecognizerCallback = {onSinVoiceRecognizerSt
         recognizedString = [NSString stringWithCString:ch encoding:NSUTF8StringEncoding];
     }
     [self stopRecord];
-    NSLog(@"string recognized : %@", recognizedString);
+    if (self.listenCompletion) {
+        self.listenCompletion(recognizedString);
+    }
 }
 
-- (void)startRecord {
+- (void)startRecord:(void (^)(NSString *))listenCompletion {
+    self.listenCompletion = listenCompletion;
     SinVoiceRecognizer_start(self.mSinVoiceRecorder, TOKEN_COUNT);
     self.mFile = fopen([NSHomeDirectory() stringByAppendingPathComponent:@"Documents/record1.pcm"].UTF8String, "wb");
 }

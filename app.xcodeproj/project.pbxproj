@@ -15,6 +15,7 @@
 		BBD8A2431CC10C060048228B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2411CC10C060048228B /* Main.storyboard */; };
 		BBD8A2451CC10C060048228B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2441CC10C060048228B /* Assets.xcassets */; };
 		BBD8A2481CC10C060048228B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */; };
+		BBD94FD01CC25E76004A5A0E /* PayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD94FCF1CC25E76004A5A0E /* PayViewModel.swift */; };
 		BBDF2EC41CC22ECB00161215 /* ChargeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */; };
 		BBDF2EC61CC232F000161215 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC51CC232F000161215 /* Amount.swift */; };
 		BBDF2EC81CC23CBD00161215 /* PromptAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC71CC23CBD00161215 /* PromptAlert.swift */; };
@@ -39,6 +40,7 @@
 		BBD8A2441CC10C060048228B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBD8A2471CC10C060048228B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD8A2491CC10C060048228B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBD94FCF1CC25E76004A5A0E /* PayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewModel.swift; sourceTree = "<group>"; };
 		BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeViewModel.swift; sourceTree = "<group>"; };
 		BBDF2EC51CC232F000161215 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		BBDF2EC71CC23CBD00161215 /* PromptAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptAlert.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				BB9E88681CC1E205007F0D07 /* ChargeViewController.swift */,
 				BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */,
 				BBF7541E1CC24555009DC617 /* PayViewController.swift */,
+				BBD94FCF1CC25E76004A5A0E /* PayViewModel.swift */,
 				BBF7542E1CC2477C009DC617 /* VoiceSendRecognizer.h */,
 				BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */,
 				BBF754311CC256CA009DC617 /* VoiceListenRecognizer.h */,
@@ -284,6 +287,7 @@
 				BBF7542B1CC245F4009DC617 /* MyPcmRecorderImp.m in Sources */,
 				BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */,
 				BBDF2EC61CC232F000161215 /* Amount.swift in Sources */,
+				BBD94FD01CC25E76004A5A0E /* PayViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
