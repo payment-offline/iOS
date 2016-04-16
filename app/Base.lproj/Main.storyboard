@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -23,18 +22,96 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-OX-iql">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el9-sv-0cB">
+                                                <rect key="frame" x="8" y="117" width="584" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="fh2-Zu-Kv3"/>
+                                                    <constraint firstAttribute="height" constant="65" id="nRY-m5-9Mi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="35"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="fh2-Zu-Kv3"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-Ts-0m8">
+                                                <rect key="frame" x="8" y="73" width="584" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="jH3-a2-cyb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="el9-sv-0cB" firstAttribute="leading" secondItem="k1N-OX-iql" secondAttribute="leading" constant="8" id="8wN-H8-Vcl"/>
+                                            <constraint firstItem="el9-sv-0cB" firstAttribute="top" secondItem="Oeh-Ts-0m8" secondAttribute="bottom" constant="8" id="DA5-fE-xF0"/>
+                                            <constraint firstItem="el9-sv-0cB" firstAttribute="leading" secondItem="k1N-OX-iql" secondAttribute="leading" constant="8" id="HIX-u0-qfy"/>
+                                            <constraint firstAttribute="trailing" secondItem="el9-sv-0cB" secondAttribute="trailing" constant="8" id="Hxg-2T-fLp"/>
+                                            <constraint firstItem="Oeh-Ts-0m8" firstAttribute="leading" secondItem="k1N-OX-iql" secondAttribute="leading" constant="8" id="KSZ-rY-DsG"/>
+                                            <constraint firstItem="el9-sv-0cB" firstAttribute="centerY" secondItem="k1N-OX-iql" secondAttribute="centerY" id="ObC-t4-stF"/>
+                                            <constraint firstItem="el9-sv-0cB" firstAttribute="centerX" secondItem="k1N-OX-iql" secondAttribute="centerX" id="TRQ-kF-Arh"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oeh-Ts-0m8" secondAttribute="trailing" constant="8" id="W0R-Gw-xHp"/>
+                                            <constraint firstAttribute="trailing" secondItem="el9-sv-0cB" secondAttribute="trailing" constant="8" id="dDm-vD-VHZ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="8wN-H8-Vcl"/>
+                                                <exclude reference="TRQ-kF-Arh"/>
+                                                <exclude reference="dDm-vD-VHZ"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-xk-WEh">
                                         <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-8v-xE9">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-lv-hbQ">
+                                                        <rect key="frame" x="8" y="8" width="284" height="284"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="284" id="1UO-x8-8Wy"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                        <state key="normal" title="Charge">
+                                                            <color key="titleColor" red="0.98431372549999996" green="0.047058823530000002" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.91854967948717947" green="0.91854967948717947" blue="0.91854967948717947" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="i7O-lv-hbQ" secondAttribute="trailing" constant="8" id="BKo-dg-Czm"/>
+                                                    <constraint firstItem="i7O-lv-hbQ" firstAttribute="leading" secondItem="AgP-8v-xE9" secondAttribute="leading" constant="8" id="N0y-I9-fRt"/>
+                                                    <constraint firstItem="i7O-lv-hbQ" firstAttribute="centerY" secondItem="AgP-8v-xE9" secondAttribute="centerY" id="WE7-C1-AoE"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PG-Xj-6fT">
                                                 <rect key="frame" x="300" y="0.0" width="300" height="300"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-fS-25D">
+                                                        <rect key="frame" x="8" y="119" width="284" height="61"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="61" id="cpC-YX-HKf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                        <state key="normal" title="Pay">
+                                                            <color key="titleColor" red="0.99609375" green="0.77773232979999996" blue="0.12583208330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="SZp-fS-25D" secondAttribute="trailing" constant="8" id="Bbg-I9-84j"/>
+                                                    <constraint firstItem="SZp-fS-25D" firstAttribute="centerY" secondItem="6PG-Xj-6fT" secondAttribute="centerY" id="QEA-z8-PGL"/>
+                                                    <constraint firstItem="SZp-fS-25D" firstAttribute="leading" secondItem="6PG-Xj-6fT" secondAttribute="leading" constant="8" id="bFt-KL-ULB"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -48,6 +125,12 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="k1N-OX-iql" secondAttribute="trailing" id="FoZ-of-no1"/>
+                                    <constraint firstItem="k1N-OX-iql" firstAttribute="top" secondItem="S6t-4d-qEN" secondAttribute="top" id="Kbe-PT-nds"/>
+                                    <constraint firstItem="k1N-OX-iql" firstAttribute="leading" secondItem="S6t-4d-qEN" secondAttribute="leading" id="bbU-ED-4Ft"/>
+                                    <constraint firstItem="dUf-xk-WEh" firstAttribute="top" secondItem="k1N-OX-iql" secondAttribute="bottom" id="zbP-DO-AiO"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -58,6 +141,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="S6t-4d-qEN" secondAttribute="trailing" constant="-20" id="Yo1-mp-KUL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chargeButton" destination="i7O-lv-hbQ" id="y3z-Ns-hDG"/>
+                        <outlet property="labelBalance" destination="el9-sv-0cB" id="FVM-eg-w8G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,8 @@
 		BBD8A2431CC10C060048228B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2411CC10C060048228B /* Main.storyboard */; };
 		BBD8A2451CC10C060048228B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2441CC10C060048228B /* Assets.xcassets */; };
 		BBD8A2481CC10C060048228B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */; };
+		BBDF2EC41CC22ECB00161215 /* PayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */; };
+		BBDF2EC61CC232F000161215 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC51CC232F000161215 /* Amount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BBD8A2441CC10C060048228B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBD8A2471CC10C060048228B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD8A2491CC10C060048228B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewModel.swift; sourceTree = "<group>"; };
+		BBDF2EC51CC232F000161215 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		BCE24B0F2D11215D034152FA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,10 +87,12 @@
 		BBD8A23C1CC10C060048228B /* app */ = {
 			isa = PBXGroup;
 			children = (
+				BBDF2EC51CC232F000161215 /* Amount.swift */,
 				BB9E886A1CC1E2CD007F0D07 /* Network.swift */,
 				BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */,
 				BBD8A23D1CC10C060048228B /* AppDelegate.swift */,
 				BB9E88681CC1E205007F0D07 /* PayViewController.swift */,
+				BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */,
 				BBD8A2411CC10C060048228B /* Main.storyboard */,
 				BBD8A2441CC10C060048228B /* Assets.xcassets */,
 				BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */,
@@ -220,8 +226,10 @@
 			files = (
 				BBD8A23E1CC10C060048228B /* AppDelegate.swift in Sources */,
 				BB9E88691CC1E205007F0D07 /* PayViewController.swift in Sources */,
+				BBDF2EC41CC22ECB00161215 /* PayViewModel.swift in Sources */,
 				BB9E886B1CC1E2CD007F0D07 /* Network.swift in Sources */,
 				BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */,
+				BBDF2EC61CC232F000161215 /* Amount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

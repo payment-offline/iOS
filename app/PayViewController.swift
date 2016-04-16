@@ -8,8 +8,8 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import NSObject_Rx
-import Starscream
 
 let kAppURLScheme = "demoappswift"
 
@@ -30,78 +30,75 @@ enum PingppsPaymentResult {
 }
 
 class PayViewController: UIViewController {
+
+    let viewModel = PayViewModel()
     
-    var socket: WebSocket!
+    @IBOutlet weak var chargeButton: UIButton!
+    @IBOutlet weak var labelBalance: UILabel!
     
-    func createPayment(order: JSON?) -> Observable<PingppsPaymentResult> {
+    func displayPromptAmount() -> Observable<Double?> {
+        let alertController = UIAlertController(title: "Enter your amount", message: "Will recharge your local wallet", preferredStyle: .Alert)
+
         return Observable.create({ observer in
-            Pingpp.createPayment(order, appURLScheme: kAppURLScheme) { (result: String!, err: PingppError!) in
-                if let err = err {
-                    observer.onError(NSError(domain: err.getMsg(), code: 400, userInfo: nil))
+            let loginAction = UIAlertAction(title: "Charge", style: .Default) { (_) in
+                let loginTextField = alertController.textFields![0] as UITextField
+                
+                if let textAmount = loginTextField.text {
+                    let amount = Double(textAmount)
+                    observer.onNext(amount)
                 }
                 else {
-                    observer.onNext(PingppsPaymentResult.result(result))
-                    observer.onCompleted()
+                    observer.onNext(nil)
                 }
             }
+            loginAction.enabled = false
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) { (_) in
+                observer.onNext(nil)
+            }
+            
+            alertController.addTextFieldWithConfigurationHandler { (textField) in
+                textField.placeholder = "Login"
+                textField.keyboardType = .NumberPad
+                
+                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                    loginAction.enabled = textField.text != ""
+                }
+            }
+            
+            alertController.addAction(loginAction)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
             return NopDisposable.instance
         })
-    }
-    
-    func parseOrder(json: JSON?) -> String? {
-        guard let json = json, let order = json["order_no"] as? String else {
-            return nil
-        }
-        return order
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = PaymentAPI.Charge(amount: 54.7, channel: "applepay_upacp")
+        viewModel.amount.asObservable().subscribeNext { amount in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.labelBalance.text = "\(amount.amount ?? 0)"
+            })
+        }.addDisposableTo(rx_disposeBag)
         
-        Network.send(request: request).flatMap { (response: JSON?) -> Observable<PingppsPaymentResult> in
-            if let order = self.parseOrder(response) {
-                self.connectForOrder(order)
-            }
-            return self.createPayment(response)
-            }.subscribe { (event) in
-                switch event {
-                case .Next(let result) where result == .Success:
-                    print("result : \(result)")
-                case .Error(let error):
-                    print("error : \(error)")
-                default: break
+        self.chargeButton.rx_tap.flatMap { (_: ()) -> Observable<Double?> in
+            return self.displayPromptAmount()
+            }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
+                guard let amount = amount else {
+                    return Observable.just(.Canceled)
                 }
+                return self.viewModel.charge(amount)
+        }.subscribe { (event) in
+            switch event {
+            case .Next(let status):
+                print("event status : \(status)")
+            case .Error(let error):
+                print("error : \(error)")
+            default: break
+            }
         }.addDisposableTo(rx_disposeBag)
     }
 }
 
-extension PayViewController: WebSocketDelegate {
-    
-    func connectForOrder(order: String) {
-        guard let url = NSURL(string: "http://heckpsi.com:8080/waiting/\(order)") else {
-            return
-        }
-        print("connecting on socket url : \(url)")
-        socket = WebSocket(url: url)
-        socket.delegate = self
-        socket.connect()
-    }
-    
-    func websocketDidConnect(socket: WebSocket) {
-        print("socket connected")
-    }
-    
-    func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
-        print("socket disconnected with error : \(error)")
-    }
-    
-    func websocketDidReceiveMessage(socket: WebSocket, text: String) {
-        print("get message from socket : \(text)")
-    }
-    
-    func websocketDidReceiveData(socket: WebSocket, data: NSData) {
-        print("get data from socket : \(data)")
-    }
-}

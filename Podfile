@@ -10,3 +10,4 @@ pod 'Pingpp', '~> 2.2.1'
 pod 'NSObject+Rx'
 
 pod 'Starscream'
+pod 'Valet'
