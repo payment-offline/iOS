@@ -46,13 +46,13 @@ class PayViewController: UIViewController {
         }.addDisposableTo(rx_disposeBag)
         
         self.chargeButton.rx_tap.retry().flatMap { (_: ()) -> Observable<Double?> in
-            return self.displayPromptAmount()
+            return PromptAlert.displayPromptAmount(self, title: "Enter the charge amount", message: "will charge you current balance")
             }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
                 guard let amount = amount else {
                     return Observable.just(.Canceled)
                 }
                 return self.viewModel.charge(amount)
-        }.retry().subscribe { (event) in
+        }.subscribe { (event) in
             switch event {
             case .Next(let status):
                 self.displayMessageAlert("Status charge : \(status)")
@@ -65,44 +65,6 @@ class PayViewController: UIViewController {
 }
 
 extension PayViewController {
-    
-    func displayPromptAmount() -> Observable<Double?> {
-        let alertController = UIAlertController(title: "Enter your amount", message: "Will recharge your local wallet", preferredStyle: .Alert)
-        
-        return Observable.create({ observer in
-            let loginAction = UIAlertAction(title: "Charge", style: .Default) { (_) in
-                let loginTextField = alertController.textFields![0] as UITextField
-                
-                if let textAmount = loginTextField.text {
-                    let amount = Double(textAmount)
-                    observer.onNext(amount)
-                }
-                else {
-                    observer.onNext(nil)
-                }
-            }
-            loginAction.enabled = false
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) { (_) in
-                observer.onNext(nil)
-            }
-            
-            alertController.addTextFieldWithConfigurationHandler { (textField) in
-                textField.placeholder = "Login"
-                textField.keyboardType = .NumberPad
-                
-                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
-                    loginAction.enabled = textField.text != ""
-                }
-            }
-            
-            alertController.addAction(loginAction)
-            alertController.addAction(cancelAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            return NopDisposable.instance
-        })
-    }
  
     func displayMessageAlert(message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
