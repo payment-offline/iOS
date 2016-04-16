@@ -103,7 +103,7 @@ SinVoicePlayerCallback gSinVoicePlayerCallback = {onSinVoicePlayerStart, onSinVo
 }
 
 - (void)stopPlay {
-    SinVoicePlayer_stop(mSinVoicePlayer);
+    SinVoicePlayer_stop(self.mSinVoicePlayer);
 }
 
 @end

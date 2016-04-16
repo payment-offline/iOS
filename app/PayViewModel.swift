@@ -14,7 +14,7 @@ class PayViewModel {
     private let voiceSendRecognizer = VoiceSendRecognizer()
     private let voiceListenRecognizer = VoiceListenRecognizer()
     
-    func sendString(string: String) -> Observable<Void> {
+    private func sendString(string: String) -> Observable<Void> {
         return Observable.create({ observer in
             self.voiceSendRecognizer.startPlay(string, completion: {
                 return observer.onNext()
@@ -25,7 +25,7 @@ class PayViewModel {
         })
     }
     
-    func receiveString() -> Observable<String?> {
+    private func receiveString() -> Observable<String?> {
         return Observable.create({ observer in
             self.voiceListenRecognizer.startRecord({ string in
                 observer.onNext(string)
@@ -36,4 +36,14 @@ class PayViewModel {
         })
     }
     
+    func askPayment() -> Observable<Double?> {
+        return sendString("ReadyTopay").flatMap { (_: ()) -> Observable<String?> in
+            return self.receiveString()
+            }.map { (string: String?) -> Double? in
+                guard let string = string else {
+                    return nil
+                }
+                return Double(string)
+        }
+    }
 }

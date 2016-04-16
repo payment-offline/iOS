@@ -48,4 +48,24 @@ class PromptAlert {
             return NopDisposable.instance
         })
     }
+
+    class func ask(parentController: UIViewController, title: String, message: String? = nil) -> Observable<Bool> {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        return Observable.create({ observer in
+            let acceptAction = UIAlertAction(title: "Ok", style: .Default) { (_) in
+                observer.onNext(true)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) { (_) in
+                observer.onNext(false)
+            }
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(acceptAction)
+            
+            parentController.presentViewController(alertController, animated: true, completion: nil)
+            return NopDisposable.instance
+        })
+    }
 }
