@@ -46,4 +46,9 @@ class PayViewModel {
                 return Double(string)
         }
     }
+    
+    func cancelPayment() {
+        self.voiceListenRecognizer.stopRecord()
+        self.voiceSendRecognizer.stopPlay()
+    }
 }
