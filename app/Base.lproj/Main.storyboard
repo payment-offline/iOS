@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pay View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PayViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,51 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S6t-4d-qEN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-OX-iql">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-xk-WEh">
+                                        <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-8v-xE9">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PG-Xj-6fT">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="300"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="6PG-Xj-6fT" secondAttribute="bottom" id="5vm-gP-7Wr"/>
+                                            <constraint firstItem="6PG-Xj-6fT" firstAttribute="leading" secondItem="AgP-8v-xE9" secondAttribute="trailing" id="B9o-N6-TAu"/>
+                                            <constraint firstItem="6PG-Xj-6fT" firstAttribute="top" secondItem="dUf-xk-WEh" secondAttribute="top" id="HKM-sR-4ii"/>
+                                            <constraint firstAttribute="bottom" secondItem="AgP-8v-xE9" secondAttribute="bottom" id="NQt-Nt-Nrj"/>
+                                            <constraint firstItem="AgP-8v-xE9" firstAttribute="leading" secondItem="dUf-xk-WEh" secondAttribute="leading" id="acY-YP-F01"/>
+                                            <constraint firstAttribute="trailing" secondItem="6PG-Xj-6fT" secondAttribute="trailing" id="ft2-O2-l0K"/>
+                                            <constraint firstItem="AgP-8v-xE9" firstAttribute="top" secondItem="dUf-xk-WEh" secondAttribute="top" id="nwR-it-Koc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S6t-4d-qEN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="5cU-Ow-yEz"/>
+                            <constraint firstItem="S6t-4d-qEN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Jub-5k-bvO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S6t-4d-qEN" secondAttribute="bottom" id="OvV-Lk-UOm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S6t-4d-qEN" secondAttribute="trailing" constant="-20" id="Yo1-mp-KUL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="453" y="389"/>
         </scene>
     </scenes>
 </document>

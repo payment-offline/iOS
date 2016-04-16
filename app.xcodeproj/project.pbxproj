@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D43FF9375B9EBAA3800DFCC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE24B0F2D11215D034152FA /* Pods.framework */; };
+		BB9E88691CC1E205007F0D07 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E88681CC1E205007F0D07 /* PayViewController.swift */; };
+		BB9E886B1CC1E2CD007F0D07 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E886A1CC1E2CD007F0D07 /* Network.swift */; };
+		BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */; };
 		BBD8A23E1CC10C060048228B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD8A23D1CC10C060048228B /* AppDelegate.swift */; };
 		BBD8A2431CC10C060048228B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2411CC10C060048228B /* Main.storyboard */; };
 		BBD8A2451CC10C060048228B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2441CC10C060048228B /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 		5C99C2435DDC0A2F941F8E70 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A711A541808628E48A656C03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BB01778C1CC1385F00FDD9B2 /* Bridgingfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridgingfile.h; sourceTree = "<group>"; };
+		BB9E88681CC1E205007F0D07 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		BB9E886A1CC1E2CD007F0D07 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentAPI.swift; sourceTree = "<group>"; };
 		BBD8A23A1CC10C060048228B /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD8A23D1CC10C060048228B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD8A2421CC10C060048228B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,7 +83,10 @@
 		BBD8A23C1CC10C060048228B /* app */ = {
 			isa = PBXGroup;
 			children = (
+				BB9E886A1CC1E2CD007F0D07 /* Network.swift */,
+				BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */,
 				BBD8A23D1CC10C060048228B /* AppDelegate.swift */,
+				BB9E88681CC1E205007F0D07 /* PayViewController.swift */,
 				BBD8A2411CC10C060048228B /* Main.storyboard */,
 				BBD8A2441CC10C060048228B /* Assets.xcassets */,
 				BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */,
@@ -210,6 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD8A23E1CC10C060048228B /* AppDelegate.swift in Sources */,
+				BB9E88691CC1E205007F0D07 /* PayViewController.swift in Sources */,
+				BB9E886B1CC1E2CD007F0D07 /* Network.swift in Sources */,
+				BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

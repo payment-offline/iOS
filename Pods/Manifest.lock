@@ -11,13 +11,24 @@ PODS:
   - Pingpp/Network (2.2.1)
   - Pingpp/UnionPay (2.2.1):
     - Pingpp/Core
+  - RxBlocking (2.0.0):
+    - RxSwift (~> 2.0)
+  - RxCocoa (2.0.0):
+    - RxSwift (~> 2.0)
+  - RxSwift (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Pingpp (~> 2.2.1)
+  - RxBlocking (~> 2.0.0-beta.4)
+  - RxCocoa (~> 2.0.0-beta.4)
+  - RxSwift (~> 2.0.0-beta.4)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Pingpp: dee508790e80d288459f58ea407507f47885ff36
+  RxBlocking: a95a10ed54eb5d116f6c9a87047ff671e181d07b
+  RxCocoa: b0ebd70b4f7450bdb3c8987b122f8fd568dc1e2f
+  RxSwift: d83246efa6f16c50c143bec134649d045498f601
 
 COCOAPODS: 0.39.0
