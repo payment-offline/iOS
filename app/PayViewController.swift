@@ -36,9 +36,39 @@ class PayViewController: UIViewController {
     @IBOutlet weak var chargeButton: UIButton!
     @IBOutlet weak var labelBalance: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.amount.asObservable().subscribeNext { amount in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.labelBalance.text = "\(amount.amount ?? 0)"
+            })
+        }.addDisposableTo(rx_disposeBag)
+        
+        self.chargeButton.rx_tap.retry().flatMap { (_: ()) -> Observable<Double?> in
+            return self.displayPromptAmount()
+            }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
+                guard let amount = amount else {
+                    return Observable.just(.Canceled)
+                }
+                return self.viewModel.charge(amount)
+        }.retry().subscribe { (event) in
+            switch event {
+            case .Next(let status):
+                self.displayMessageAlert("Status charge : \(status)")
+            case .Error(let error):
+                self.displayMessageAlert("Error charge : \(error)")
+            default: break
+            }
+        }.addDisposableTo(rx_disposeBag)
+    }
+}
+
+extension PayViewController {
+    
     func displayPromptAmount() -> Observable<Double?> {
         let alertController = UIAlertController(title: "Enter your amount", message: "Will recharge your local wallet", preferredStyle: .Alert)
-
+        
         return Observable.create({ observer in
             let loginAction = UIAlertAction(title: "Charge", style: .Default) { (_) in
                 let loginTextField = alertController.textFields![0] as UITextField
@@ -73,32 +103,12 @@ class PayViewController: UIViewController {
             return NopDisposable.instance
         })
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+ 
+    func displayMessageAlert(message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
         
-        viewModel.amount.asObservable().subscribeNext { amount in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.labelBalance.text = "\(amount.amount ?? 0)"
-            })
-        }.addDisposableTo(rx_disposeBag)
-        
-        self.chargeButton.rx_tap.retry().flatMap { (_: ()) -> Observable<Double?> in
-            return self.displayPromptAmount()
-            }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
-                guard let amount = amount else {
-                    return Observable.just(.Canceled)
-                }
-                return self.viewModel.charge(amount)
-        }.retry().subscribe { (event) in
-            switch event {
-            case .Next(let status):
-                print("event status : \(status)")
-            case .Error(let error):
-                print("error : \(error)")
-            default: break
-            }
-        }.addDisposableTo(rx_disposeBag)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) in }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
