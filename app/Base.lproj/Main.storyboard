@@ -29,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="65" id="fh2-Zu-Kv3"/>
                                                     <constraint firstAttribute="height" constant="65" id="nRY-m5-9Mi"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="35"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="63"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">

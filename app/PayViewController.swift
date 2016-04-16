@@ -83,14 +83,14 @@ class PayViewController: UIViewController {
             })
         }.addDisposableTo(rx_disposeBag)
         
-        self.chargeButton.rx_tap.flatMap { (_: ()) -> Observable<Double?> in
+        self.chargeButton.rx_tap.retry().flatMap { (_: ()) -> Observable<Double?> in
             return self.displayPromptAmount()
             }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
                 guard let amount = amount else {
                     return Observable.just(.Canceled)
                 }
                 return self.viewModel.charge(amount)
-        }.subscribe { (event) in
+        }.retry().subscribe { (event) in
             switch event {
             case .Next(let status):
                 print("event status : \(status)")
