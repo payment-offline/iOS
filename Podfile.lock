@@ -18,6 +18,7 @@ PODS:
   - RxCocoa (2.0.0):
     - RxSwift (~> 2.0)
   - RxSwift (2.0.0)
+  - Socket.IO-Client-Swift (6.1.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - RxBlocking (~> 2.0.0-beta.4)
   - RxCocoa (~> 2.0.0-beta.4)
   - RxSwift (~> 2.0.0-beta.4)
+  - Socket.IO-Client-Swift
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
@@ -34,5 +36,6 @@ SPEC CHECKSUMS:
   RxBlocking: a95a10ed54eb5d116f6c9a87047ff671e181d07b
   RxCocoa: b0ebd70b4f7450bdb3c8987b122f8fd568dc1e2f
   RxSwift: d83246efa6f16c50c143bec134649d045498f601
+  Socket.IO-Client-Swift: b0ebbd80f039992bad6d0f74730b5a540d979520
 
 COCOAPODS: 0.39.0

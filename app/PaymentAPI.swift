@@ -10,12 +10,18 @@ import UIKit
 
 enum PaymentAPI {
     case Status
+    case Charge(amount: Double, channel: String)
 }
 
 extension PaymentAPI: NetworkRequest {
 
     func parameters() -> [String: AnyObject]? {
-        return nil
+        switch self {
+        case .Charge(let amount, let channel):
+            return ["money": amount, "channel": channel]
+        default:
+            return nil
+        }
     }
     
     func path() -> String {
@@ -24,6 +30,8 @@ extension PaymentAPI: NetworkRequest {
         switch self {
         case .Status:
             return "\(basePath)/status"
+        case .Charge:
+            return "\(basePath)/charge"
         }
     }
     
@@ -31,6 +39,8 @@ extension PaymentAPI: NetworkRequest {
         switch self {
         case .Status:
             return  .GET
+        case .Charge:
+            return .POST
         }
     }
 }
