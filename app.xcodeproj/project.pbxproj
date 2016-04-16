@@ -123,10 +123,6 @@
 				BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */,
 				BBF7541E1CC24555009DC617 /* PayViewController.swift */,
 				BBD94FCF1CC25E76004A5A0E /* PayViewModel.swift */,
-				BBF7542E1CC2477C009DC617 /* VoiceSendRecognizer.h */,
-				BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */,
-				BBF754311CC256CA009DC617 /* VoiceListenRecognizer.h */,
-				BBF754321CC256CA009DC617 /* VoiceListenRecognizer.m */,
 				BBD8A2411CC10C060048228B /* Main.storyboard */,
 				BBD8A2441CC10C060048228B /* Assets.xcassets */,
 				BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */,
@@ -149,6 +145,10 @@
 				BBF754271CC245F4009DC617 /* MyPcmRecorderImp.m */,
 				BBF754281CC245F4009DC617 /* SinVoicePlayer.h */,
 				BBF754291CC245F4009DC617 /* SinVoiceRecognizer.h */,
+				BBF7542E1CC2477C009DC617 /* VoiceSendRecognizer.h */,
+				BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */,
+				BBF754311CC256CA009DC617 /* VoiceListenRecognizer.h */,
+				BBF754321CC256CA009DC617 /* VoiceListenRecognizer.m */,
 			);
 			name = SoundLib;
 			sourceTree = "<group>";

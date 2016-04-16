@@ -59,6 +59,14 @@ class PayViewController: UIViewController {
                 guard let amount = amount else {
                     return
                 }
+                if (Amount.amount < amount) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        let alertController = UIAlertController(title: "Not enough money", message: nil, preferredStyle: .Alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) in }))
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    })
+                    return
+                }
                 dispatch_async(dispatch_get_main_queue(), { 
                     self.askPaymentConfirmation(amount)
                 })

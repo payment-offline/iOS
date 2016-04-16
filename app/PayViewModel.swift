@@ -44,7 +44,7 @@ class PayViewModel {
                 guard let string = string else {
                     return nil
                 }
-                return Double(string)
+                return Double(string)! / 100
         }
     }
     
@@ -53,7 +53,7 @@ class PayViewModel {
     }
     
     func cancelPayment() -> Observable<Void> {
-        return sendString("BNI")
+        return sendString("BNE")
     }
     
     func stopPayment() {
