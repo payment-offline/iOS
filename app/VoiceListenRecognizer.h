@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VoiceListenRecognizer : NSObject
+@interface VoiceListenRecognizer : NSObject {
+    @public
+    int mResults[100];
+    int mResultCount;
+    int mMaxEncoderIndex;
+}
+
+- (void)onRecogToken:(nonnull VoiceListenRecognizer *)data;
+- (void)startRecord;
 
 @end

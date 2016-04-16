@@ -12,8 +12,6 @@
     @public
     int mRates[100];
     int mPlayCount;
-    int mResults[100];
-    int mResultCount;
     int mMaxEncoderIndex;
 }
 

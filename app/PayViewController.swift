@@ -10,10 +10,11 @@ import UIKit
 
 class PayViewController: UIViewController {
     
-    let voiceRecognizer = VoiceSendRecognizer()
+    let voiceSendRecognizer = VoiceSendRecognizer()
+    let voiceListenRecognizer = VoiceListenRecognizer()
     
     override func viewDidAppear(animated: Bool) {
-        self.voiceRecognizer.startPlay("salut")
+        self.voiceListenRecognizer.startRecord()
     }
     
     override func viewDidLoad() {

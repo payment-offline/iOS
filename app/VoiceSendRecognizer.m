@@ -8,16 +8,13 @@
 
 #import "VoiceSendRecognizer.h"
 #import "SinVoicePlayer.h"
-#import "SinVoiceRecognizer.h"
 #include "ESPcmPlayer.h"
-#include "ESPcmRecorder.h"
 #import "MyPcmPlayerImp.h"
 
 static const char* const CODE_BOOK = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@_";
 
 @interface VoiceSendRecognizer ()
 @property (nonnull, nonatomic, assign) SinVoicePlayer *mSinVoicePlayer;
-@property (nonnull, nonatomic, assign) SinVoiceRecognizer* mSinVoiceRecorder;
 @end
 
 ESVoid onSinVoicePlayerStart(ESVoid* cbParam) {
