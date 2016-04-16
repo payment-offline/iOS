@@ -17,5 +17,6 @@
 
 - (void)onRecogToken:(nonnull VoiceListenRecognizer *)data;
 - (void)startRecord:(void (^_Nonnull)(NSString * _Nullable))listenCompletion;
+- (void)stopRecord;
 
 @end

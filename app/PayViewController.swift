@@ -11,19 +11,9 @@ import UIKit
 class PayViewController: UIViewController {
     
     let viewModel = PayViewModel()
-    let voiceSendRecognizer = VoiceSendRecognizer()
-    let voiceListenRecognizer = VoiceListenRecognizer()
     
     @IBAction func cancelPayment(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        self.voiceListenRecognizer.startRecord { text in
-            guard let text = text else {
-                return
-            }
-        }
     }
     
     override func viewDidLoad() {

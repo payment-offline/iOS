@@ -17,5 +17,6 @@
 
 - (void)onPlayData:(nonnull VoiceSendRecognizer *)data;
 - (void)startPlay:(nonnull NSString *)string completion:(void (^ _Nonnull)(void))sendingCompletion;
+- (void)stopPlay;
 
 @end
