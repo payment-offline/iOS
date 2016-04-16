@@ -15,6 +15,7 @@ static const char* const CODE_BOOK = "0123456789abcdefghijklmnopqrstuvwxyzABCDEF
 
 @interface VoiceSendRecognizer ()
 @property (nonnull, nonatomic, assign) SinVoicePlayer *mSinVoicePlayer;
+@property (nonatomic, copy) void (^sendCompletion)(void);
 @end
 
 ESVoid onSinVoicePlayerStart(ESVoid* cbParam) {
@@ -61,8 +62,9 @@ SinVoicePlayerCallback gSinVoicePlayerCallback = {onSinVoicePlayerStart, onSinVo
     }
 }
 
-- (void)startPlay:(nonnull NSString *)string {
-
+- (void)startPlay:(nonnull NSString *)string completion:(void (^)(void))sendingCompletion {
+    self.sendCompletion = sendingCompletion;
+    
     int index = 0;
     const char* str = [string cStringUsingEncoding:NSUTF8StringEncoding];
     
