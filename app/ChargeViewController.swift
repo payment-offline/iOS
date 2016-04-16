@@ -39,9 +39,9 @@ class ChargeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.amount.asObservable().subscribeNext { amount in
+        Amount.observable.subscribeNext { amount in
             dispatch_async(dispatch_get_main_queue(), {
-                self.labelBalance.text = "\(amount.amount ?? 0)"
+                self.labelBalance.text = "\(amount ?? 0)"
             })
         }.addDisposableTo(rx_disposeBag)
         

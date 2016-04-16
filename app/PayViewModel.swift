@@ -11,10 +11,11 @@ import RxSwift
 
 class PayViewModel {
     
-    private let voiceSendRecognizer = VoiceSendRecognizer()
-    private let voiceListenRecognizer = VoiceListenRecognizer()
+    private var voiceSendRecognizer = VoiceSendRecognizer()
+    private var voiceListenRecognizer = VoiceListenRecognizer()
     
     private func sendString(string: String) -> Observable<Void> {
+        self.voiceSendRecognizer = VoiceSendRecognizer()
         return Observable.create({ observer in
             self.voiceSendRecognizer.startPlay(string, completion: {
                 return observer.onNext()
@@ -37,7 +38,7 @@ class PayViewModel {
     }
     
     func askPayment() -> Observable<Double?> {
-        return sendString("ReadyTopay").flatMap { (_: ()) -> Observable<String?> in
+        return sendString("WTP").flatMap { (_: ()) -> Observable<String?> in
             return self.receiveString()
             }.map { (string: String?) -> Double? in
                 guard let string = string else {
@@ -45,6 +46,10 @@ class PayViewModel {
                 }
                 return Double(string)
         }
+    }
+    
+    func confirmPayment() -> Observable<Void> {
+        return sendString("OKC")
     }
     
     func cancelPayment() {

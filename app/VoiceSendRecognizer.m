@@ -26,6 +26,8 @@ ESVoid onSinVoicePlayerStart(ESVoid* cbParam) {
 }
 
 ESVoid onSinVoicePlayerStop(ESVoid* cbParam) {
+    VoiceSendRecognizer * vc = (__bridge VoiceSendRecognizer *)cbParam;
+    [vc completed];
     NSLog(@"onSinVoicePlayerStop");
 }
 
@@ -55,11 +57,16 @@ SinVoicePlayerCallback gSinVoicePlayerCallback = {onSinVoicePlayerStart, onSinVo
     return self;
 }
 
+- (void)completed {
+    self.sendCompletion();
+}
+
 - (void)onPlayData:(VoiceSendRecognizer *)data {
     char ch[100] = { 0 };
     for ( int i = 0; i < mPlayCount; ++i ) {
         ch[i] = (char)data->mRates[i];
     }
+    NSLog(@"sent data on");
 }
 
 - (void)startPlay:(nonnull NSString *)string completion:(void (^)(void))sendingCompletion {

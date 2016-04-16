@@ -8,25 +8,38 @@
 
 import UIKit
 import Valet
+import RxSwift
 
-struct Amount {
+class Amount {
 
-    private let valetManager = VALValet(identifier: "valet.payof", accessibility: .WhenUnlocked)
+    private let valetManager = VALValet(identifier: "valet.payof", accessibility: .WhenPasscodeSetThisDeviceOnly)
     private let storeKeyAmount = "amount"
     
-    var amount: Double? {
-        didSet {
-            guard let amount = amount else {
-                return
-            }
-            valetManager?.setString("\(amount)", forKey: storeKeyAmount)
+    static let sharedInstance = Amount()
+    
+    private var _amountVar: Double?
+    
+    private var _amount: Variable<Double?>
+    
+    class var observable: Observable<Double?> {
+        return sharedInstance._amount.asObservable()
+    }
+    
+    class var amount: Double {
+        get {
+            return sharedInstance._amount.value ?? 0
+        }
+        set {
+            sharedInstance.valetManager?.setString("\(newValue)", forKey: sharedInstance.storeKeyAmount)
+            sharedInstance._amount.value = newValue
         }
     }
     
     init() {
+        _amount = Variable(nil)
         guard let amountString = valetManager?.stringForKey(storeKeyAmount) else {
             return
         }
-        amount = Double(amountString)
+        _amount.value = Double(amountString)
     }
 }

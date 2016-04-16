@@ -95,8 +95,7 @@ SinVoiceRecognizerCallback gSinVoiceRecognizerCallback = {onSinVoiceRecognizerSt
 }
 
 - (void)stopRecord {
-    SinVoiceRecognizer_start(self.mSinVoiceRecorder, TOKEN_COUNT);
-    self.mFile = fopen([NSHomeDirectory() stringByAppendingPathComponent:@"Documents/record1.pcm"].UTF8String, "wb");
+    SinVoiceRecognizer_stop(self.mSinVoiceRecorder);
 }
 
 @end

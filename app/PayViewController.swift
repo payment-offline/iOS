@@ -26,6 +26,22 @@ class PayViewController: UIViewController {
         self.payButton.layer.cornerRadius = self.payButton.frame.size.width / 2
     }
     
+    func askPaymentConfirmation(amount: Double) {
+        let alertController = UIAlertController(title: "Do you want to pay", message: "for an amount of: \(amount)", preferredStyle: .Alert)
+        
+        alertController.addAction(UIAlertAction(title: "cancel", style: .Destructive, handler: { (_) in }))
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) in
+            self.viewModel.confirmPayment().subscribeNext({
+                dispatch_async(dispatch_get_main_queue(), {
+                    Amount.amount = Amount.amount - amount
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }).addDisposableTo(self.rx_disposeBag)
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +50,12 @@ class PayViewController: UIViewController {
             self.activityIndicator.startAnimating()
             
             self.viewModel.askPayment().subscribeNext({ amount in
-            
-                print("amount : \(amount)")
-                
+                guard let amount = amount else {
+                    return
+                }
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.askPaymentConfirmation(amount)
+                })
             }).addDisposableTo(self.rx_disposeBag)
             
         }.addDisposableTo(rx_disposeBag)

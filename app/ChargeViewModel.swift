@@ -14,7 +14,6 @@ import Starscream
 class ChargeViewModel {
     
     private var socket: WebSocket!
-    var amount = Variable(Amount())
     
     private func createPayment(order: JSON?) -> Observable<PingppsPaymentResult> {
         return Observable.create({ observer in
@@ -48,7 +47,7 @@ class ChargeViewModel {
             }.flatMap({ (result: PingppsPaymentResult) -> Observable<PingppsPaymentResult> in
                 switch result {
                 case .Success:
-                    self.amount.value.amount = amount + (self.amount.value.amount ?? 0)
+                    Amount.amount = amount + (Amount.amount ?? 0)
                 default: break
                 }
                 return Observable.just(result)
