@@ -11,4 +11,13 @@
 
 #import "Pingpp.h"
 
+#import "ESPcmPlayer.h"
+#import "ESPcmRecorder.h"
+#import "ESType.h"
+#import "MyPcmPlayerImp.h"
+#import "MyPcmRecorderImp.h"
+#import "SinVoicePlayer.h"
+#import "SinVoiceRecognizer.h"
+#import "VoiceSendRecognizer.h"
+
 #endif /* Bridgingfile_h */

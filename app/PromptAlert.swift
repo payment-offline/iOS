@@ -11,7 +11,7 @@ import RxSwift
 
 class PromptAlert {
 
-    class func displayPromptAmount(parentController: UIViewController, title: String, message: String? = nil) -> Observable<Double?> {
+    class func show(parentController: UIViewController, title: String, message: String? = nil) -> Observable<Double?> {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         return Observable.create({ observer in

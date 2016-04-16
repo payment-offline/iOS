@@ -8,23 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		2D43FF9375B9EBAA3800DFCC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE24B0F2D11215D034152FA /* Pods.framework */; };
-		BB9E88691CC1E205007F0D07 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E88681CC1E205007F0D07 /* PayViewController.swift */; };
+		BB9E88691CC1E205007F0D07 /* ChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E88681CC1E205007F0D07 /* ChargeViewController.swift */; };
 		BB9E886B1CC1E2CD007F0D07 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E886A1CC1E2CD007F0D07 /* Network.swift */; };
 		BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */; };
 		BBD8A23E1CC10C060048228B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD8A23D1CC10C060048228B /* AppDelegate.swift */; };
 		BBD8A2431CC10C060048228B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2411CC10C060048228B /* Main.storyboard */; };
 		BBD8A2451CC10C060048228B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2441CC10C060048228B /* Assets.xcassets */; };
 		BBD8A2481CC10C060048228B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */; };
-		BBDF2EC41CC22ECB00161215 /* PayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */; };
+		BBDF2EC41CC22ECB00161215 /* ChargeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */; };
 		BBDF2EC61CC232F000161215 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC51CC232F000161215 /* Amount.swift */; };
 		BBDF2EC81CC23CBD00161215 /* PromptAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF2EC71CC23CBD00161215 /* PromptAlert.swift */; };
+		BBF7541F1CC24555009DC617 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF7541E1CC24555009DC617 /* PayViewController.swift */; };
+		BBF7542A1CC245F4009DC617 /* MyPcmPlayerImp.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF754251CC245F4009DC617 /* MyPcmPlayerImp.m */; };
+		BBF7542B1CC245F4009DC617 /* MyPcmRecorderImp.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF754271CC245F4009DC617 /* MyPcmRecorderImp.m */; };
+		BBF7542D1CC24610009DC617 /* libSVSinVoiceLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF7542C1CC24610009DC617 /* libSVSinVoiceLib.a */; };
+		BBF754301CC2477C009DC617 /* VoiceSendRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */; };
+		BBF754331CC256CA009DC617 /* VoiceListenRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF754321CC256CA009DC617 /* VoiceListenRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C99C2435DDC0A2F941F8E70 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A711A541808628E48A656C03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BB01778C1CC1385F00FDD9B2 /* Bridgingfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridgingfile.h; sourceTree = "<group>"; };
-		BB9E88681CC1E205007F0D07 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		BB9E88681CC1E205007F0D07 /* ChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeViewController.swift; sourceTree = "<group>"; };
 		BB9E886A1CC1E2CD007F0D07 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentAPI.swift; sourceTree = "<group>"; };
 		BBD8A23A1CC10C060048228B /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,9 +39,24 @@
 		BBD8A2441CC10C060048228B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBD8A2471CC10C060048228B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD8A2491CC10C060048228B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewModel.swift; sourceTree = "<group>"; };
+		BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeViewModel.swift; sourceTree = "<group>"; };
 		BBDF2EC51CC232F000161215 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		BBDF2EC71CC23CBD00161215 /* PromptAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptAlert.swift; sourceTree = "<group>"; };
+		BBF7541E1CC24555009DC617 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		BBF754211CC245F4009DC617 /* ESPcmPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPcmPlayer.h; sourceTree = "<group>"; };
+		BBF754221CC245F4009DC617 /* ESPcmRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPcmRecorder.h; sourceTree = "<group>"; };
+		BBF754231CC245F4009DC617 /* ESType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESType.h; sourceTree = "<group>"; };
+		BBF754241CC245F4009DC617 /* MyPcmPlayerImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPcmPlayerImp.h; sourceTree = "<group>"; };
+		BBF754251CC245F4009DC617 /* MyPcmPlayerImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPcmPlayerImp.m; sourceTree = "<group>"; };
+		BBF754261CC245F4009DC617 /* MyPcmRecorderImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPcmRecorderImp.h; sourceTree = "<group>"; };
+		BBF754271CC245F4009DC617 /* MyPcmRecorderImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPcmRecorderImp.m; sourceTree = "<group>"; };
+		BBF754281CC245F4009DC617 /* SinVoicePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinVoicePlayer.h; sourceTree = "<group>"; };
+		BBF754291CC245F4009DC617 /* SinVoiceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinVoiceRecognizer.h; sourceTree = "<group>"; };
+		BBF7542C1CC24610009DC617 /* libSVSinVoiceLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSVSinVoiceLib.a; sourceTree = "<group>"; };
+		BBF7542E1CC2477C009DC617 /* VoiceSendRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceSendRecognizer.h; sourceTree = "<group>"; };
+		BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceSendRecognizer.m; sourceTree = "<group>"; };
+		BBF754311CC256CA009DC617 /* VoiceListenRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceListenRecognizer.h; sourceTree = "<group>"; };
+		BBF754321CC256CA009DC617 /* VoiceListenRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceListenRecognizer.m; sourceTree = "<group>"; };
 		BCE24B0F2D11215D034152FA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF7542D1CC24610009DC617 /* libSVSinVoiceLib.a in Frameworks */,
 				2D43FF9375B9EBAA3800DFCC /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,13 +111,19 @@
 		BBD8A23C1CC10C060048228B /* app */ = {
 			isa = PBXGroup;
 			children = (
+				BBF754201CC245E7009DC617 /* SoundLib */,
 				BBDF2EC51CC232F000161215 /* Amount.swift */,
 				BB9E886A1CC1E2CD007F0D07 /* Network.swift */,
 				BB9E886C1CC1E303007F0D07 /* PaymentAPI.swift */,
 				BBDF2EC71CC23CBD00161215 /* PromptAlert.swift */,
 				BBD8A23D1CC10C060048228B /* AppDelegate.swift */,
-				BB9E88681CC1E205007F0D07 /* PayViewController.swift */,
-				BBDF2EC31CC22ECB00161215 /* PayViewModel.swift */,
+				BB9E88681CC1E205007F0D07 /* ChargeViewController.swift */,
+				BBDF2EC31CC22ECB00161215 /* ChargeViewModel.swift */,
+				BBF7541E1CC24555009DC617 /* PayViewController.swift */,
+				BBF7542E1CC2477C009DC617 /* VoiceSendRecognizer.h */,
+				BBF7542F1CC2477C009DC617 /* VoiceSendRecognizer.m */,
+				BBF754311CC256CA009DC617 /* VoiceListenRecognizer.h */,
+				BBF754321CC256CA009DC617 /* VoiceListenRecognizer.m */,
 				BBD8A2411CC10C060048228B /* Main.storyboard */,
 				BBD8A2441CC10C060048228B /* Assets.xcassets */,
 				BBD8A2461CC10C060048228B /* LaunchScreen.storyboard */,
@@ -103,6 +131,23 @@
 				BB01778C1CC1385F00FDD9B2 /* Bridgingfile.h */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		BBF754201CC245E7009DC617 /* SoundLib */ = {
+			isa = PBXGroup;
+			children = (
+				BBF7542C1CC24610009DC617 /* libSVSinVoiceLib.a */,
+				BBF754211CC245F4009DC617 /* ESPcmPlayer.h */,
+				BBF754221CC245F4009DC617 /* ESPcmRecorder.h */,
+				BBF754231CC245F4009DC617 /* ESType.h */,
+				BBF754241CC245F4009DC617 /* MyPcmPlayerImp.h */,
+				BBF754251CC245F4009DC617 /* MyPcmPlayerImp.m */,
+				BBF754261CC245F4009DC617 /* MyPcmRecorderImp.h */,
+				BBF754271CC245F4009DC617 /* MyPcmRecorderImp.m */,
+				BBF754281CC245F4009DC617 /* SinVoicePlayer.h */,
+				BBF754291CC245F4009DC617 /* SinVoiceRecognizer.h */,
+			);
+			name = SoundLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +274,14 @@
 			files = (
 				BBDF2EC81CC23CBD00161215 /* PromptAlert.swift in Sources */,
 				BBD8A23E1CC10C060048228B /* AppDelegate.swift in Sources */,
-				BB9E88691CC1E205007F0D07 /* PayViewController.swift in Sources */,
-				BBDF2EC41CC22ECB00161215 /* PayViewModel.swift in Sources */,
+				BBF7542A1CC245F4009DC617 /* MyPcmPlayerImp.m in Sources */,
+				BB9E88691CC1E205007F0D07 /* ChargeViewController.swift in Sources */,
+				BBF7541F1CC24555009DC617 /* PayViewController.swift in Sources */,
+				BBDF2EC41CC22ECB00161215 /* ChargeViewModel.swift in Sources */,
+				BBF754301CC2477C009DC617 /* VoiceSendRecognizer.m in Sources */,
+				BBF754331CC256CA009DC617 /* VoiceListenRecognizer.m in Sources */,
 				BB9E886B1CC1E2CD007F0D07 /* Network.swift in Sources */,
+				BBF7542B1CC245F4009DC617 /* MyPcmRecorderImp.m in Sources */,
 				BB9E886D1CC1E303007F0D07 /* PaymentAPI.swift in Sources */,
 				BBDF2EC61CC232F000161215 /* Amount.swift in Sources */,
 			);
@@ -349,6 +399,7 @@
 			baseConfigurationReference = A711A541808628E48A656C03 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,6 +421,7 @@
 			baseConfigurationReference = 5C99C2435DDC0A2F941F8E70 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

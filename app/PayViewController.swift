@@ -7,70 +7,16 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import NSObject_Rx
-
-let kAppURLScheme = "demoappswift"
-
-enum PingppsPaymentResult {
-    case Success
-    case Canceled
-    case Failed
-    
-    static func result(result: String) -> PingppsPaymentResult {
-        switch result {
-        case "success":
-            return .Success
-        case "cancel":
-            return .Canceled
-        default: return .Failed
-        }
-    }
-}
 
 class PayViewController: UIViewController {
-
-    let viewModel = PayViewModel()
     
-    @IBOutlet weak var chargeButton: UIButton!
-    @IBOutlet weak var labelBalance: UILabel!
+    let voiceRecognizer = VoiceSendRecognizer()
+    
+    override func viewDidAppear(animated: Bool) {
+        self.voiceRecognizer.startPlay("salut")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.amount.asObservable().subscribeNext { amount in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.labelBalance.text = "\(amount.amount ?? 0)"
-            })
-        }.addDisposableTo(rx_disposeBag)
-        
-        self.chargeButton.rx_tap.retry().flatMap { (_: ()) -> Observable<Double?> in
-            return PromptAlert.displayPromptAmount(self, title: "Enter the charge amount", message: "will charge you current balance")
-            }.flatMap { (amount: Double?) -> Observable<PingppsPaymentResult> in
-                guard let amount = amount else {
-                    return Observable.just(.Canceled)
-                }
-                return self.viewModel.charge(amount)
-        }.subscribe { (event) in
-            switch event {
-            case .Next(let status):
-                self.displayMessageAlert("Status charge : \(status)")
-            case .Error(let error):
-                self.displayMessageAlert("Error charge : \(error)")
-            default: break
-            }
-        }.addDisposableTo(rx_disposeBag)
     }
 }
-
-extension PayViewController {
- 
-    func displayMessageAlert(message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
-        
-        alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) in }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-}
-

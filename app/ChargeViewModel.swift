@@ -11,7 +11,7 @@ import RxSwift
 import NSObject_Rx
 import Starscream
 
-class PayViewModel {
+class ChargeViewModel {
     
     private var socket: WebSocket!
     var amount = Variable(Amount())
@@ -56,7 +56,7 @@ class PayViewModel {
     }
 }
 
-extension PayViewModel: WebSocketDelegate {
+extension ChargeViewModel: WebSocketDelegate {
     
     func connectForOrder(order: String) {
         guard let url = NSURL(string: "ws://heckpsi.com:8080/waiting/\(order)") else {

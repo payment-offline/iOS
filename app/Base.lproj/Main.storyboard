@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Pay View Controller-->
+        <!--Charge View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PayViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChargeViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -96,14 +96,17 @@
                                                 <rect key="frame" x="300" y="0.0" width="300" height="300"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-fS-25D">
-                                                        <rect key="frame" x="8" y="119" width="284" height="61"/>
+                                                        <rect key="frame" x="8" y="8" width="284" height="284"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="61" id="cpC-YX-HKf"/>
+                                                            <constraint firstAttribute="height" constant="284" id="cpC-YX-HKf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                                         <state key="normal" title="Pay">
                                                             <color key="titleColor" red="0.99609375" green="0.77773232979999996" blue="0.12583208330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="ITR-vH-MJv" kind="presentation" modalTransitionStyle="crossDissolve" id="fC8-Dq-GJg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,6 +152,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="453" y="389"/>
+        </scene>
+        <!--Pay View Controller-->
+        <scene sceneID="MKR-PP-wub">
+            <objects>
+                <viewController id="ITR-vH-MJv" customClass="PayViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iz5-cd-l7I"/>
+                        <viewControllerLayoutGuide type="bottom" id="k41-Tx-DlD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xiJ-5w-yha">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDW-QV-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163" y="389"/>
         </scene>
     </scenes>
 </document>
