@@ -9,4 +9,4 @@ pod 'Alamofire'
 pod 'Pingpp', '~> 2.2.1'
 pod 'NSObject+Rx'
 
-pod 'Socket.IO-Client-Swift'
+pod 'Starscream'
